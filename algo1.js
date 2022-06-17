@@ -1,21 +1,23 @@
 
 'use strict'
 
+
+// find paildrom number
 // const isPaildromNumber = (num) => {
 //     const numStr = num.toString()
-//     for (let i = 0; i < numStr.length; i++) {
+//     for (let i = 0; i < numStr.length / 2; i++) {
 //         if(numStr.at(i) !== numStr.at(- (1 + i))){
 //             return false
 //         }
 //     }
 //     return true
 //   }
-//   const isPaildrom = isPaildromNumber(10)
+//   const isPaildrom = isPaildromNumber(1111)
 //   console.log(isPaildrom)
 
 
 
-
+//  find missing number in given range
 // const isRangeNumber = () => {
 //   const arrOfNum = [9, 6, 4, 2, 3, 5, 7, 0, 1];
 //   let total = 0;
@@ -70,7 +72,7 @@
 
 
 // ex: 1
-// find longest charecter 
+// find longest charecter
 // const findLongestCharacter = (strs) => {
 
 //   const arrOfStr = strs.toString().replaceAll(',', '').split("")
@@ -79,6 +81,7 @@
 //   let char = '';
 
 //   for (let i = 0; i < arrOfStr.length; i++) {
+//     debugger
 //     map[arrOfStr[i]] ? map[arrOfStr[i]] += 1 : map[arrOfStr[i]] = 1
 //   }
 
@@ -93,7 +96,7 @@
 //   }
 //   return char
 // }
-// const isLongestCharacter = findLongestCharacter(["dog","racecar","car"])
+// const isLongestCharacter = findLongestCharacter(["dod"])
 // console.log(isLongestCharacter)
 
 // ex: 2
@@ -118,7 +121,7 @@
 //   const newArray = []
 //   for (let i = 0; i < strs.length; i++) {
 //       newArray.push(strs[i])
-//     const len = newArray.length === 1 ? newArray.length - 1 : newArray.length - 2  
+//     const len = newArray.length === 1 ? newArray.length - 1 : newArray.length - 2
 //     if (newArray[len] === '(' && strs[i] === ')' || newArray[len] === '[' && strs[i] === ']' || newArray[len] === '{' && strs[i] === '}') {
 //       newArray.pop(strs[i])
 //       newArray.pop(newArray[len])
@@ -198,7 +201,7 @@
 
 
 // Remove Element which match by given value
-// const removeDuplicatesEle = (nums, val) => {
+// const removeEle = (nums, val) => {
 //     for (let i = nums.length - 1; i >= 0; i--) {
 //         if (nums[i] === val) {
 //             nums.splice([i], 1)
@@ -206,8 +209,8 @@
 //     }
 //     return nums
 // }
-// const isremoveDuplicatesEle = removeDuplicatesEle([0,1,2,2,3,0,4,2], 2)
-// console.log(isremoveDuplicatesEle)
+// const isremoveEle = removeEle([0,1,2,2,3,0,4,2], 2)
+// console.log(isremoveEle)
 
 
 // ex : 1
@@ -224,7 +227,7 @@
 //     }
 //     return -1
 // }
-// const isImplementStrStr = implementStrStr('aaaaa', 'bba')
+// const isImplementStrStr = implementStrStr('aabba', 'bba')
 // console.log(isImplementStrStr)
 
 // ex : 2
@@ -261,14 +264,285 @@
 // console.log(isLastWordLength)
 
 // ex: 2
-const lastWordLength = (s) => {
-    let k = 0
-    if(!s) return k
-    for (let i = s.length - 1; i >= 0; i--) {
-        if(s[i] !== " ") k++
-        if(s[i] === " " && k > 0) return k
-    }
-    return k
+// const lastWordLength = (s) => {
+//     let k = 0
+//     if(!s) return k
+//     for (let i = s.length - 1; i >= 0; i--) {
+//         if(s[i] !== " ") k++
+//         if(s[i] === " " && k > 0) return k
+//     }
+//     return k
+// }
+// const isLastWordLength = lastWordLength('   fly me   to   the moon  ')
+// console.log(isLastWordLength)
+
+
+// Plus One
+// const plusOne = (digits) => {
+//     if (digits.length < 0) return 0
+//     let reminder
+//     for (let i = digits.length; i >= 0; i--) {
+//         if (digits[i - 1] === 9) {
+//             digits[i - 1] = 0
+//             reminder = 1
+//         } else if (reminder !== 0 && i === 0) {
+//             digits[i] = reminder;
+//             digits[digits.length] = 0
+//            // digits[i - 1] = digits[i - 1] + reminder
+//         } else{
+//             digits[i - 1] = digits[i - 1] + 1
+//             return digits
+//         }
+//     }
+//     return digits
+// }
+// const isPlusOne = plusOne([9, 8, 9])
+// console.log(isPlusOne)
+
+
+
+// add binary
+// const addBinary = (digits) => {
+
+//     return digits
+// }
+// const isAddBinary = addBinary([9, 8, 9])
+// console.log(isAddBinary)
+
+
+// const mergeTwoSortedArray = (nums1, m, nums2, n) => {
+//     let last = m + n - 1
+//     for (let i = m + n; i > 0; i--) {
+//         debugger
+//         if(nums1[last] < nums2[n - 1]){
+//             nums1[i - 1] = nums2[n - 1]
+//             n -= 1
+//             last -=1
+//         }else if(nums1[last] > nums2[last]){
+//             nums1[i - 1] = nums1[last]
+//         }
+//     }
+//     return nums1
+// }
+// const ismergeTwoSortedArray = mergeTwoSortedArray([1,2,3,0,0,0], 3, [2,5,6], 3)
+// console.log(ismergeTwoSortedArray)
+
+
+// example : 1
+// valid palindromeString
+// const palindromeString = (s) => {
+//     const regex = /^[A-Za-z0-9]+$/
+//     let acc = ''
+//     for (let i = 0; i < s.length; i++) {
+//         if (s[i].match(regex)) {
+//             acc += s[i]
+//         }
+//     }
+//     for (let j = 0; j < acc.length / 2; j++) {
+//         if (acc[j].toLowerCase() != acc[acc.length - (j + 1)].toLowerCase()) {
+//             return false
+//         }
+//     }
+//     return true
+// }
+// const isPalindromeString = palindromeString('A man, a plan, a canal: Panama')
+// console.log(isPalindromeString)
+
+// example : 2
+// const palindromeString = (s) => {
+//     const str  = s.replace(/[\W_]+/g,"").toLowerCase()
+//     for (let j = 0; j < str.length / 2; j++) {
+//         if (str[j] != str[str.length - (j + 1)]) {
+//             return false
+//         }
+//     }
+//     return true
+// }
+// const isPalindromeString = palindromeString('A man, a plan, a canal: Panama')
+// console.log(isPalindromeString)
+
+
+
+// find single in array
+// const singleNumber = (nums) => {
+//   let map = {}
+//   for (let i = 0; i < nums.length; i++) {
+//     map[nums[i]] ? delete map[nums[i]] : map[nums[i]] = 1
+//   }
+//   return Number(Object.keys(map))
+// }
+// const isSingleNumber = singleNumber([2,2,1])
+// console.log(isSingleNumber)
+
+
+//  power of some
+// const powerOfsome = (s, t) => {
+//   let mult = 2
+//   let i
+//   if(n === 1) return true
+//   while (mult <= n) {
+//     if (mult === n) return true
+//     mult *= 2
+//     i++
+//   }
+//   return false
+// }
+// const isPowerOfsome = powerOfsome(8)
+// console.log(isPowerOfsome)
+
+
+
+// anagram word
+// const anagram = (s, t) => {
+//   let map = {}
+//   if (s.length !== t.length) return false
+//   for (let i = 0; i < s.length; i++) {
+//     if (!map[s[i]]) map[s[i]] = 0
+//     if (!map[t[i]]) map[t[i]] = 0
+//     map[s[i]]++
+//     map[t[i]]--
+//   }
+
+//   for (let ch in map) {
+//     if (map[ch] !== 0) return false
+//   }
+//   return true
+// }
+// const isAnagram = anagram('rat', 'car')
+// console.log(isAnagram)
+
+
+
+// add digits util return single number
+// const addDigit = (num) => {
+//   if(num === 0) return 0
+//   if(num % 9 === 0) return 9
+//   return num % 9
+// }
+// const isAddDigit = addDigit(38)
+// console.log(isAddDigit)
+
+
+// ugly number
+// const uglyNumber = (n) => {
+//   if (n === 0) return false
+//   if (n === 1) return true
+//   while (n !== 1) {
+//     if (n % 2 === 0) n /= 2
+//     else if (n % 3 === 0) n /= 3
+//     else if (n % 5 === 0) n /= 5
+//     else return false
+//   }
+//   return true
+// }
+// const isUglyNumber = uglyNumber(6)
+// console.log(isUglyNumber)
+
+
+// happy number
+// const happyNumber = (n) => {
+//   let a = 32
+//   a = a/10
+//   console.log(a)
+//   // console.log(322%10)
+//   return true
+// }
+// const ishappyNumber = happyNumber(19)
+// console.log(ishappyNumber)
+
+
+// Missing Number in range
+// const missingNumber = (nums) => {
+//   const expected = (nums.length * (nums.length + 1) / 2)
+//   const total = nums.reduce((acc, idx) => { return acc + idx })
+//   return expected - total
+// }
+// const ismissingNumber = missingNumber([3, 0, 1])
+// console.log(ismissingNumber)
+
+
+// Move Zeroes
+// const moveZeros = (nums) => {
+//   let idx = 0
+//   for (let i = 0; i < nums.length; i++) {
+//     debugger
+//     if(nums[idx] === 0) {
+//       nums.push(0)
+//       nums.splice(idx, 1)
+//     }
+//     else idx++
+//   }
+//   return nums
+// }
+// const ismoveZeros = moveZeros([0])
+// console.log(ismoveZeros)
+
+
+// Word Pattern
+// const wordPattern = (pattern, s) => {
+//   let map = {}
+//   const str = s.split(' ')
+//   for (let i = 0; i < str.length; i++) {
+//     debugger
+//     for (let key in str) {
+//       if (map[pattern[i]] === str[key]) {
+//         map[key] = str[key]
+//       } else {
+//         map[pattern[key]] = str[key]
+//       }
+//     }
+//   }
+// }
+// const iswordPattern = wordPattern('abba', 'dog cat cat dog')
+// console.log(iswordPattern)
+
+
+// Nim Game
+// const nimGame = (n) => {
+//   if(n % 4 === 0) return true
+//   else return false
+// }
+// const isnimGame = nimGame(7)
+// console.log(isnimGame)
+
+
+// ex 1
+// power of three
+// const powerOfThree = (n) => {
+//   let multi = 3
+//   if(n === 1) return true
+//   while(multi <= n){
+//     if(n === multi) return true
+//     multi *= 3
+//   }
+//   return false
+// }
+// const isPowerOfThree = powerOfThree(9)
+// console.log(isPowerOfThree)
+
+//  ex : 2
+// const powerOfThree = (n) => {
+//   return n > 0 && 1162261467 % n  === 0;
+// }
+// const isPowerOfThree = powerOfThree(3)
+// console.log(isPowerOfThree)
+
+// Reverse String
+// const reverseString = (s) => {
+//   for (let i = 0; i < s.length / 2; i++) {
+//     [s[i], s[s.length - (i + 1)]] = [s[s.length - (i + 1)], s[i]] 
+//   }
+//  return s
+// }
+// const isreverseString = reverseString(["H","a","n","n","a","h"])
+// console.log(isreverseString)
+
+// Reverse vowels
+const reverseVowels = (s) => {
+  for (let i = 0; i < s.length / 2; i++) {
+    [s[i], s[s.length - (i + 1)]] = [s[s.length - (i + 1)], s[i]] 
+  }
+ return s
 }
-const isLastWordLength = lastWordLength('   fly me   to   the moon  ')
-console.log(isLastWordLength)
+const isreverseVowels = reverseVowels('hello')
+console.log(isreverseVowels)
