@@ -135,57 +135,6 @@
 
 
 
-
-// merge shorted array
-// const twoShortedArrary = (...args) => {
-//     let newArr = [];
-//     let maxLen = args.length
-//     let compareInr = 1
-//     let inr = 0
-//     for (let j = 0; j < maxLen; j++) {
-//         debugger
-//         if (compareInr < args.length) {
-//             compareInr++
-//             if (args[0].length < args[compareInr - 1].length) {
-//                 maxLen = args[compareInr - 1].length
-//             }
-//         }
-//         if(j === args.length){
-//             maxLen += args[compareInr - 1].length
-//             inr++
-//         }
-//         console.log(args[j][inr])
-//         // console.log(args[j][0])
-//         // if (list1[i] > list2[i]) {
-//         //     newArray.push(list2[i], list1[i])
-//         // } else if (!list1[i]) {
-//         //     newArray.push(list2[i])
-//         // } else if (!list2[i]) {
-//         //     newArray.push(list1[i])
-//         // } else {
-//         //     newArray.push(list1[i], list2[i])
-//         // }
-//     }
-//     // console.log(args[])
-//     // const newArray = []
-//     // for (let i = 0; i < list1.length; i++) {
-//     //     if (list1[i] > list2[i]) {
-//     //         newArray.push(list2[i], list1[i])
-//     //     } else if (!list1[i]) {
-//     //         newArray.push(list2[i])
-//     //     } else if (!list2[i]) {
-//     //         newArray.push(list1[i])
-//     //     } else {
-//     //         newArray.push(list1[i], list2[i])
-//     //     }
-//     // }
-//     return "Sd";
-// }
-// const istwoShortedArrary = twoShortedArrary([1, 2, 4], [1, 3, 4], [7, 8, 9, 10])
-// console.log(istwoShortedArrary)
-
-
-
 // Remove Duplicates from Sorted Array
 // const removeDuplicatesShortedArrary = (nums) => {
 //     for (let i = nums.length - 1; i > 0; i--) {
@@ -298,16 +247,6 @@
 // }
 // const isPlusOne = plusOne([9, 8, 9])
 // console.log(isPlusOne)
-
-
-
-// add binary
-// const addBinary = (digits) => {
-
-//     return digits
-// }
-// const isAddBinary = addBinary([9, 8, 9])
-// console.log(isAddBinary)
 
 
 // const mergeTwoSortedArray = (nums1, m, nums2, n) => {
@@ -439,17 +378,6 @@
 // console.log(isUglyNumber)
 
 
-// happy number
-// const happyNumber = (n) => {
-//   let a = 32
-//   a = a/10
-//   console.log(a)
-//   // console.log(322%10)
-//   return true
-// }
-// const ishappyNumber = happyNumber(19)
-// console.log(ishappyNumber)
-
 
 // Missing Number in range
 // const missingNumber = (nums) => {
@@ -476,25 +404,6 @@
 // }
 // const ismoveZeros = moveZeros([0])
 // console.log(ismoveZeros)
-
-
-// Word Pattern
-// const wordPattern = (pattern, s) => {
-//   let map = {}
-//   const str = s.split(' ')
-//   for (let i = 0; i < str.length; i++) {
-//     debugger
-//     for (let key in str) {
-//       if (map[pattern[i]] === str[key]) {
-//         map[key] = str[key]
-//       } else {
-//         map[pattern[key]] = str[key]
-//       }
-//     }
-//   }
-// }
-// const iswordPattern = wordPattern('abba', 'dog cat cat dog')
-// console.log(iswordPattern)
 
 
 // Nim Game
@@ -536,13 +445,3 @@
 // }
 // const isreverseString = reverseString(["H","a","n","n","a","h"])
 // console.log(isreverseString)
-
-// Reverse vowels
-const reverseVowels = (s) => {
-  for (let i = 0; i < s.length / 2; i++) {
-    [s[i], s[s.length - (i + 1)]] = [s[s.length - (i + 1)], s[i]] 
-  }
- return s
-}
-const isreverseVowels = reverseVowels('hello')
-console.log(isreverseVowels)
