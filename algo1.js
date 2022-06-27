@@ -99,6 +99,8 @@
 // const isLongestCharacter = findLongestCharacter(["dod"])
 // console.log(isLongestCharacter)
 
+
+
 // ex: 2
 // const findLongestPrefix = (strs) => {
 //   if(!strs[0]) return ""
@@ -162,6 +164,7 @@
 // console.log(isremoveEle)
 
 
+
 // ex : 1
 // const implementStrStr = (haystack, needle) => {
 //     if (needle.length === 0 || haystack === needle) return 0
@@ -212,6 +215,8 @@
 // const isLastWordLength = lastWordLength('luffy is still joyboy')
 // console.log(isLastWordLength)
 
+
+
 // ex: 2
 // const lastWordLength = (s) => {
 //     let k = 0
@@ -224,6 +229,7 @@
 // }
 // const isLastWordLength = lastWordLength('   fly me   to   the moon  ')
 // console.log(isLastWordLength)
+
 
 
 // Plus One
@@ -249,6 +255,7 @@
 // console.log(isPlusOne)
 
 
+
 // const mergeTwoSortedArray = (nums1, m, nums2, n) => {
 //     let last = m + n - 1
 //     for (let i = m + n; i > 0; i--) {
@@ -265,6 +272,7 @@
 // }
 // const ismergeTwoSortedArray = mergeTwoSortedArray([1,2,3,0,0,0], 3, [2,5,6], 3)
 // console.log(ismergeTwoSortedArray)
+
 
 
 // example : 1
@@ -286,6 +294,8 @@
 // }
 // const isPalindromeString = palindromeString('A man, a plan, a canal: Panama')
 // console.log(isPalindromeString)
+
+
 
 // example : 2
 // const palindromeString = (s) => {
@@ -389,6 +399,7 @@
 // console.log(ismissingNumber)
 
 
+
 // Move Zeroes
 // const moveZeros = (nums) => {
 //   let idx = 0
@@ -406,6 +417,7 @@
 // console.log(ismoveZeros)
 
 
+
 // Nim Game
 // const nimGame = (n) => {
 //   if(n % 4 === 0) return true
@@ -413,6 +425,7 @@
 // }
 // const isnimGame = nimGame(7)
 // console.log(isnimGame)
+
 
 
 // ex 1
@@ -429,12 +442,16 @@
 // const isPowerOfThree = powerOfThree(9)
 // console.log(isPowerOfThree)
 
+
+
 //  ex : 2
 // const powerOfThree = (n) => {
 //   return n > 0 && 1162261467 % n  === 0;
 // }
 // const isPowerOfThree = powerOfThree(3)
 // console.log(isPowerOfThree)
+
+
 
 // Reverse String
 // const reverseString = (s) => {
@@ -445,3 +462,87 @@
 // }
 // const isreverseString = reverseString(["H","a","n","n","a","h"])
 // console.log(isreverseString)
+
+
+
+// Intersection of Two Arrays
+// const intersectionofTwoArrays = (nums1, nums2) => {
+//   let hashMap = {}
+//   const maxLength = nums1.length > nums2.length ? nums1.length : nums2.length 
+//   for (let i = 0; i < maxLength; i++) {
+//     for (let j = 0; j < maxLength; j++) {
+//       if (nums2[i] === nums1[j]) {
+//         hashMap[nums2[i]] = nums2[i]
+//       }
+//     }
+//   }
+//   return Object.values(hashMap)
+// }
+// const isintersectionofTwoArrays = intersectionofTwoArrays([5,0,0,6,1,6,2,2,4], [4,7,9,7,6,7])
+// console.log(isintersectionofTwoArrays)
+
+
+// example: 2
+// const intersectionofTwoArrays = (nums1, nums2) => {
+//   const newArray = nums1.filter(num => nums2.includes(num))
+//   return [... new Set(newArray)]
+// }
+// const isintersectionofTwoArrays = intersectionofTwoArrays([5, 0, 0, 6, 1, 6, 2, 2, 4], [4, 7, 9, 7, 6, 7])
+// console.log(isintersectionofTwoArrays)
+
+
+
+// return only name with last name kumar
+// const LastName = (arr) => {
+//   return arr.filter(name => name.split(' ')[1] === 'kumar').map(name => name.split(' ')[1])
+// }
+// const isLastName = LastName(['jay kumar', 'jatin kumar', 'varun choudhary'])
+// console.log(isLastName)
+
+
+
+// example 2 return only last name match with kumar
+// const LastName = (arr) => {
+//   const resutls = []
+//   for (let i = 0; i < arr.length; i++) {
+//     if(arr[i].split(" ")[1] === 'kumar') {
+//       resutls.push(arr[i].split(" ")[1])
+//     }
+//   }
+//   return resutls
+// }
+// const isLastName = LastName(['jay kumar', 'jatin kumar', 'varun choudhary'])
+// console.log(isLastName)
+
+
+
+// ex:1 Intersection of Two Arrays union
+// const intersectionofTwoArrays = (nums1, nums2) => {
+//   return nums1.filter(num => nums2.includes(num))
+// }
+// const isintersectionofTwoArrays = intersectionofTwoArrays([1,2,2,1], [2,2])
+// console.log(isintersectionofTwoArrays)
+
+
+// ex:2 Intersection of Two Arrays union (not solved)
+// const intersectionofTwoArrays = (nums1, nums2) => {
+//   let newArr = []
+//   let i = 0
+//   let p1 = 0
+//   let min = nums1.length < nums2.length ? nums1 : nums2
+//   let max = nums1.length > nums2.length ? nums1 : nums2
+//   if(min.length === max.length) min = nums1, max = nums2
+//   while (min.length !== 0 || newArr.length !== min.length) {
+//     // debugger
+//     if (max[i] === min[p1]) {
+//       newArr.push(min[p1])
+//       max.splice(i, 1)
+//       min.splice(p1, 1)
+//       i = 0
+//     } else if (max.length == i) p1++, i =0
+//     else i++
+//   }
+//   return newArr
+// }
+// const isintersectionofTwoArrays = intersectionofTwoArrays([1,1], [2,1])
+// console.log(isintersectionofTwoArrays)
