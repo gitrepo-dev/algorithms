@@ -170,7 +170,7 @@
 //   absdivisor = Math.abs(divisor)
 
 //   while (absdividend >= absdivisor) {
-    
+
 //     temp = absdivisor
 //     quotient = 1
 //     while (temp <= absdividend) {
@@ -344,20 +344,29 @@
 
 // Combination Sum
 // const CombinationSum = (candidates, target) => {
-//   let start = 0, arr = [], sum = 0, secarr = []
-//   for (let i = 0; i < candidates.length; i++) {
-//     debugger
-
-//     while (sum < target) {
-//       sum = sum + candidates[i]
-//       if(sum === target) arr.push(secarr), start  = start + 1
-//       secarr.push(candidates[i])
+//   const temp = [];
+//   const recursion = (start, nums, target, slate) => {
+//     if (target === 0) {
+//       temp.push(slate.slice())
+//       return;
 //     }
-//     sum = 0,  secarr = []
+//     if (target < 0) {
+//       return
+//     }
+
+//     for (let i = start; i < nums.length; i++) {
+//       // add in slate [arr]
+//       slate.push(nums[i]);
+//       // call recursion
+//       recursion(i, nums, target - nums[i], slate)
+//       // to run backtraking
+//       slate.pop()
+//     }
 //   }
-//   return arr
+//   recursion(0, candidates, target, [])
+//   return temp
 // }
-// const isCombinationSum = CombinationSum([2, 3, 6, 7], 7)
+// const isCombinationSum = CombinationSum([1, 2, 3], 3)
 // console.log(isCombinationSum)
 
 
