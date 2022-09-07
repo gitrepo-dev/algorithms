@@ -342,11 +342,11 @@
 
 
 
-
-// Combination Sum
+// 39. Combination Sum
 // const CombinationSum = (candidates, target) => {
 //   const temp = [];
 //   const recursion = (start, nums, target, slate) => {
+//     debugger
 //     if (target === 0) {
 //       temp.push(slate.slice())
 //       return;
@@ -793,52 +793,33 @@
 // console.log(isJumpGame)
 
 
-// / 46. Permutations
-const Permutations = (nums) => {
-  if (nums.length === 1) return nums
-  const temp = []
-  const recursion = (i, arr, slate) => {
-    // debugger
-    // base condition
-    if (i >= arr.length) {
-      temp.push(slate)
-      return
-    }
-    // logic
-    for (const key of arr) {
-      console.log(key, arr)
-      slate.push(arr[i])
-      recursion(i + 1, arr, slate)
-      slate.pop()
-    }
-    // recursion fn
-    recursion(i + 1, arr, slate)
-  }
-  recursion(0, nums, [])
-  return temp
-}
-const isPermutations = Permutations([1, 2, 3])
-console.log(isPermutations)
+// 46. Permutations
+// const permutations = (nums) => {
+//   const temp = []
+//   const backtraking = (i, nums) => {
 
 
-// if(digits.length === 0) return temp;
-//   const recursion = (i, digits, slate) => {
 //     // base condition
-//     if (i === digits.length) {
-//       temp.push(slate.join(''))
+//     if (i === nums.length) {
+//       temp.push(nums.slice())
 //       return
 //     }
-//     // get char from hashMap
-//     let chars = map[digits[i]]
-//     // recurson login loop
-//     for (const key of chars) {
-//       slate.push(key)
-//       recursion(i + 1, digits, slate)
-//       slate.pop()
+
+//     // logic
+//     for (let j = i; j < nums.length; j++) {
+//       [nums[i], nums[j]] = [nums[j], nums[i]]
+//       // backtraking
+//       backtraking(i + 1, nums);
+//       // when backtrack run and loop will run and exit loop 
+//       [nums[i], nums[j]] = [nums[j], nums[i]]
 //     }
 //   }
-//   recursion(0, digits, [])
+//   backtraking(0, nums)
 //   return temp
+// }
+// const isPermutations = permutations([1, 2, 3])
+// console.log(isPermutations)
+
 
 // [1,2,3]
 
@@ -851,3 +832,28 @@ console.log(isPermutations)
 //   [3,2,1]
 // ]
 
+const LetterCombinations = (digits) => {
+  const map = { 2: 'abc', 3: 'def', 4: 'ghi', 5: 'jkl', 6: 'mno', 7: 'pqrs', 8: 'tuv', 9: 'wxyz' }
+  const temp = [];
+  if(digits.length === 0) return temp;
+  const recursion = (i, digits, slate) => {
+    debugger
+    // base condition
+    if (i === digits.length) {
+      temp.push(slate.join(''))
+      return
+    }
+    // get char from hashMap
+    let chars = map[digits[i]]
+    // recurson login loop
+    for (const key of chars) {
+      slate.push(key)
+      recursion(i + 1, digits, slate)
+      slate.pop()
+    }
+  }
+  recursion(0, digits, [])
+  return temp
+}
+const isLetterCombinations = LetterCombinations('23')
+console.log(isLetterCombinations)

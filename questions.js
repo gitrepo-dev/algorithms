@@ -46,8 +46,9 @@
 // in the arrow function they will alway target to parent fn which is window if you want change the behaver then you have to them inside a normal fn same for class in the class it will target to its parent for ex constructor
 // const user = {
 //   mname: 'jay',
-//   getname: () => {
+//   getname: (mname) => {
 //     // this will target to its parent in this case window is parent and in window has no mname it will return undefined
+//     this.mname = mname
 //     console.log(this.mname, 'will target parent 1')
 //   },
 //   childobj: {
@@ -58,7 +59,7 @@
 //     }
 //   }
 // }
-// user.getname()
+// user.getname('abc')
 // user.childobj.childname()
 
 
