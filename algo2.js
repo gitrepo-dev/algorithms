@@ -798,7 +798,7 @@
 //   const temp = []
 //   const backtraking = (i, nums) => {
 
-
+//     debugger
 //     // base condition
 //     if (i === nums.length) {
 //       temp.push(nums.slice())
@@ -832,28 +832,28 @@
 //   [3,2,1]
 // ]
 
-const LetterCombinations = (digits) => {
-  const map = { 2: 'abc', 3: 'def', 4: 'ghi', 5: 'jkl', 6: 'mno', 7: 'pqrs', 8: 'tuv', 9: 'wxyz' }
-  const temp = [];
-  if(digits.length === 0) return temp;
-  const recursion = (i, digits, slate) => {
-    debugger
-    // base condition
-    if (i === digits.length) {
-      temp.push(slate.join(''))
-      return
-    }
-    // get char from hashMap
-    let chars = map[digits[i]]
-    // recurson login loop
-    for (const key of chars) {
-      slate.push(key)
-      recursion(i + 1, digits, slate)
-      slate.pop()
-    }
-  }
-  recursion(0, digits, [])
-  return temp
-}
-const isLetterCombinations = LetterCombinations('23')
-console.log(isLetterCombinations)
+// const LetterCombinations = (digits) => {
+//   const map = { 2: 'abc', 3: 'def', 4: 'ghi', 5: 'jkl', 6: 'mno', 7: 'pqrs', 8: 'tuv', 9: 'wxyz' }
+//   const temp = [];
+//   if(digits.length === 0) return temp;
+//   const recursion = (i, digits, slate) => {
+//     debugger
+//     // base condition
+//     if (i === digits.length) {
+//       temp.push(slate.join(''))
+//       return
+//     }
+//     // get char from hashMap
+//     let chars = map[digits[i]]
+//     // recurson login loop
+//     for (const key of chars) {
+//       slate.push(key)
+//       recursion(i + 1, digits, slate)
+//       slate.pop()
+//     }
+//   }
+//   recursion(0, digits, [])
+//   return temp
+// }
+// const isLetterCombinations = LetterCombinations('23')
+// console.log(isLetterCombinations)
