@@ -17,7 +17,7 @@
 
 
 
-//  find missing number in given range
+//  find missing number in given range ( n * (n + 1) / 2)
 // const isRangeNumber = () => {
 //   const arrOfNum = [9, 6, 4, 2, 3, 5, 7, 0, 1];
 //   let total = 0;
@@ -70,18 +70,16 @@
 
 
 
-
+// hashmap
 // ex: 1
 // find longest charecter
 // const findLongestCharacter = (strs) => {
-
 //   const arrOfStr = strs.toString().replaceAll(',', '').split("")
 //   const map = {}
 //   let max = 1
 //   let char = '';
 
 //   for (let i = 0; i < arrOfStr.length; i++) {
-//     debugger
 //     map[arrOfStr[i]] ? map[arrOfStr[i]] += 1 : map[arrOfStr[i]] = 1
 //   }
 
@@ -96,7 +94,7 @@
 //   }
 //   return char
 // }
-// const isLongestCharacter = findLongestCharacter(["dod"])
+// const isLongestCharacter = findLongestCharacter(["doddfff"])
 // console.log(isLongestCharacter)
 
 
@@ -255,7 +253,7 @@
 // console.log(isPlusOne)
 
 
-
+// 88. Merge Sorted Array
 // const mergeTwoSortedArray = (nums1, m, nums2, n) => {
 //     let last = m + n - 1
 //     for (let i = m + n; i > 0; i--) {
