@@ -343,3 +343,252 @@ output should be:
 // };
 // const isnextGreaterElement = nextGreaterElement([1, 3, 4, 1, 2])
 // console.log(isnextGreaterElement)
+
+
+
+// 504. Base 7
+// const convertToBase7 = function (num) {
+//   let reminder = "", division = Math.abs(num), neg = false, ans
+//   if (num < 0) neg = true
+//   if (num === 0) return "0"
+//   while (division) {
+//     reminder += parseInt(division % 7)
+//     division = parseInt(division / 7)
+//   }
+//   if (neg) return `-${reminder.split("").reverse().join("")}`
+//   else return reminder.split("").reverse().join("")
+// };
+// const isconvertToBase7 = convertToBase7(100)
+// console.log(isconvertToBase7)
+
+
+// 506. Relative Ranks
+// brute force approach
+// const RelativeRanks = function (score) {
+//   const hashMap = { 0: 'Gold Medal', 1: 'Silver Medal', 2: 'Bronze Medal' }
+//   const result = new Array(score.length)
+//   let copedArr = [...score]
+//   for (let i = 0; i < score.length; i++) {
+//     const max = Math.max(...copedArr)
+//     const idx = score.indexOf(max)
+//     result[idx] = hashMap[i] ? hashMap[i] : `${i + 1}`
+//     copedArr = [...copedArr.filter(d => d !== max)]
+//   }
+//   return result
+// };
+// const isRelativeRanks = RelativeRanks([5, 4, 3, 2, 1])
+// console.log(isRelativeRanks)
+
+// remain to do
+// const RelativeRanks = function (score) {
+//   const hashMap = { 0: 'Gold Medal', 1: 'Silver Medal', 2: 'Bronze Medal' }
+//   let rank = {}, result = []
+//   const copedArr = [...score].sort((a, b) => a - b)
+//   for (let i = 0; i < score.length; i++) {
+//     rank[i] = hashMap[i] ? hashMap[i] : `${i + 1}`
+//   }
+
+//   for (const key in rank) {
+//     result[key] = rank[key]
+//   }
+//   return result
+// };
+// const isRelativeRanks = RelativeRanks([5, 4, 3, 2, 1])
+// console.log(isRelativeRanks)
+
+
+// 520. Detect Capital
+// also a solution // (word==word.upper() or word==word.lower())or(word[1:].lower()==word[1:]))
+// const detectCapitalUse = function (word) {
+//   const hashMap = { A: 'A', B: 'B', C: 'C', D: 'D', E: 'E', F: 'F', G: 'G', H: 'H', I: 'I', J: 'J', K: 'K', L: 'L', M: 'M', N: 'N', O: 'O', P: 'P', Q: 'Q', R: 'R', S: 'S', T: 'T', U: 'U', V: 'V', W: 'W', X: 'X', Y: 'Y', Z: 'Z' }
+//   let charCount = 0, char = ''
+//   if (word.length === 0) return true
+//   for (const i of word) {
+//     if (hashMap[i]) charCount++, char = i
+//   }
+//   if (charCount === word.length) return true
+//   if (charCount === 1 && word[0] === char) return true
+//   if (charCount === 0) return true
+//   return false
+// };
+// const isdetectCapitalUse = detectCapitalUse('usA')
+// console.log(isdetectCapitalUse)
+
+
+
+// 557. Reverse Words in a String III
+// const ReverseWordsinaStringIII = (s) => {
+//   const newArr = s.split(" ")
+//   let word = ""
+//   for (let i = 0; i < newArr.length; i++) {
+//     let str = newArr[i].split('')
+//     for (let j = 0; j < str.length / 2; j++) {
+//       [str[j], str[str.length - (1 + j)]] = [str[str.length - (1 + j)], str[j]]
+//     }
+//     if (newArr.length > 1 && (newArr.length - 1) !== i) str.push(' ')
+//     console.log(str)
+//     word += str.join(' ')
+//   }
+//   return word
+// };
+// const isReverseWordsinaStringIII = ReverseWordsinaStringIII("vector<string>")
+// console.log(isReverseWordsinaStringIII)
+
+// function reverseString(s){
+//   let arr = s.split('');
+//   let length = ~~(arr.length/2);
+//   for(let i = 0; i< length; i++){
+//       [arr[i],arr[s.length-1-i]] = [arr[arr.length-1-i],arr[i]];
+//   }
+//   return arr.join('');
+// }
+// var reverseWords = function(s) {
+//   let arr = s.split(' ');
+//   for(let i = 0; i<arr.length; i++){
+//       arr[i] = reverseString(arr[i]);
+//   }
+//   return arr.join(' ')
+// };
+
+
+// 561. Array Partition
+// const ArrayPartition = (nums) => {
+//   let i = 0
+//   for (let i = 0; i < nums.length; i++) {
+//     while (i !== 2) {
+//       nums[i]
+//       i++
+//     }
+//   }
+
+// };
+// const isArrayPartition = ArrayPartition([1,4,3,2])
+// console.log(isArrayPartition)
+
+
+
+
+// console.log(0/4) // 0
+// console.log(4/0) // infinite
+// console.log(0%4) // 0
+// console.log(4%0) // Nan
+
+// 566. Reshape the Matrix
+// const matrixReshape = (mat, r, c) => {
+//   // If transformation doesn't occur, return mat...
+//   if (mat.length * mat[0].length != r * c) {
+//     return mat;
+//   }
+//   // Otherwise create a output matrix and fill the cells...
+//   const output = new Array(r).fill(0).map(() => new Array(c).fill(0))
+//   console.log(output)
+//   // Traverse the matrix through the loop... 
+//   for (let idx = 0; idx < r * c; idx++) {
+//     console.log(Math.floor(idx / c), (idx % c), 'output =>', output[Math.floor(idx / c)][idx % c])
+//     console.log(Math.floor(idx / mat[0].length), (idx % mat[0].length), 'mat =>', mat[Math.floor(idx / mat[0].length)][idx % mat[0].length])
+//     output[Math.floor(idx / c)][idx % c] = mat[Math.floor(idx / mat[0].length)][idx % mat[0].length];
+//   }
+//   return output;      // Return the output matrix...
+// };
+// const ismatrixReshape = matrixReshape([[1, 2], [3, 4]], 2, 2)
+// console.log(ismatrixReshape)
+
+// const arr = [[1, 2, 3, 4]]
+// console.log(arr[0][0])
+// console.log(arr[0][1])
+// console.log(arr[0][2])
+// console.log(arr[0][3])
+
+
+
+// 507. Perfect Number
+// https://www.youtube.com/watch?v=tznrea_Skqg&t=1393s
+// use 25 to test false and nested if conndition
+// const checkPerfectNumber = function (num) {
+//   let add = 0
+//   for (let i = 0; i < Math.sqrt(num); i++) {
+//     // debugger
+//     if (num % i === 0) {
+//       add += i
+//       // additing constant also
+//       if (i * i !== num) add += num / i      
+//     }
+//   }
+//   return add - num === num
+// };
+// const ischeckPerfectNumber = checkPerfectNumber(28)
+// console.log(ischeckPerfectNumber)
+
+
+
+
+
+// 575. Distribute Candies
+// also can solve by the hash map
+// const distributeCandies = function (candyType) {
+//   let candiesType = 0, jar = []
+//   for (let i = 0; i < candyType.length; i++) {
+//     let present = jar.find(c => c === candyType[i])
+//     if (present === undefined) {
+//       candiesType++;
+//       jar.push(candyType[i])
+//     }
+//   }
+//   if (candiesType < candyType.length / 2) return candiesType
+//   else return candyType.length / 2
+// };
+// const isdistributeCandies = distributeCandies([100000,0,100000,0,100000,0,100000,0,100000,0,100000,0])
+// console.log(isdistributeCandies)
+
+
+
+
+// 594. Longest Harmonious Subsequence
+// const findLHS = function (candyType) {
+//   return true
+// };
+// const isfindLHS = findLHS([1, 3, 2, 2, 5, 2, 3, 7])
+// console.log(isfindLHS)
+
+
+// matrix
+// const matrix = function (r1, c1, r2, c2, eleTofill) {
+
+//   /* 
+//     if col of A is equal to row of B then can be a new matrix 
+//     new matrix params will be row of A and column of B (r1*c2)
+
+//     example => [[1,2], [3,4], [5,6]] in this example number of A el in a any of array is col [1,2], or [3,4] so on
+//     so col are only 2 because in array there are only two ele.
+//     and row will be count of array so there are 3 array [1,2], [3,4], [5,6]
+
+//     rule of filling el in matrix col wise first fill the first all col of first row and so on.
+//   */
+
+
+//   // mat A (r1 * c1)
+//   const mat1 = new Array(r1).fill(0).map(() => new Array(c1).fill(0))
+//   // mat B (r2 * c2)
+//   const mat2 = new Array(r2).fill(0).map(() => new Array(c2).fill(0))
+//   // new mat (r1 * c2)
+//   const newMat = new Array(r1).fill(0).map(() => new Array(c2).fill(0))
+
+//   // mathod 1
+//   for (let i = 0; i < eleTofill.length; i++) {
+//     for (let j = 0; j < eleTofill[0].length; j++) {
+//       newMat[i][j] = eleTofill[i][j]
+//     }
+//   }
+
+//   // method 2
+//   const c = eleTofill[0].length
+//   for (let i = 0; i < eleTofill.length * eleTofill[0].length; i++) {
+//     newMat[Math.floor(i / c)][i % c] = eleTofill[Math.floor(i / c)][i % c]
+//   }
+
+//   return newMat
+
+// };
+// const ismatrix = matrix(4, 3, 3, 4, [[2, 4, 7, 1], [4, 6, 9, 3], [4, 8, 8, 6], [9, 2, 2, 8]])
+// console.log(ismatrix)
+

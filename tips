@@ -11,7 +11,7 @@ algorithm to learn
 2) sorting (bubble)
 3) stack and queue
 4) pointer approach
-5) heap
+5) recursion
 
 
 
@@ -19,3 +19,4 @@ Data structure
 1) linked list
 2) tree
 3) convert char to binary 
+4) heap
