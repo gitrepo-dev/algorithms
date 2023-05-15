@@ -2,19 +2,16 @@
 
 // 541. Reverse String II
 // const reverseString = (s, k) => {
-// let start = 0;
-//   let answer = '';
-//   while (start < s.length) {
-//       let next = start + (2 * k);
-//       add and skip both
-//       answer += [...s.substr(start, k)].reverse().join('') + s.substr(start + k, k);
-//       start = next;
+//   let ans = '', start = 0, end = k
+//   for (let i = 0; i < s.length / k; i++) {
+//     ans += [...s.substring(start, end)].reverse().join('') + s.substring(end, (end + k))    
+//     start += k * 2
+//     end = start + k
+//     if(ans.length === s.length) break
 //   }
-//   return answer;
-
-
+//   return ans;
 // }
-// const isreverseString = reverseString('abcdefg', 2)
+// const isreverseString = reverseString('abcdefghijkl', 3)
 // console.log(isreverseString)
 
 
@@ -144,18 +141,37 @@
 
 // 414. Third Maximum Number
 // const ThirdMaximumNumber = (nums) => {
-//   let n, duplicate
-//   if (nums.length === 1) return nums[0]
-//   for (let i = 0; i < nums.length; i++) {
-//     if (duplicate === nums[i] && i === (nums.length - 1)) return Math.max(...nums)
-//     else if (duplicate === nums[i]) continue
-//     duplicate = nums[i]
-//     n = nums[i]
+//   const newArr = [...new Set(nums)]
+//   if (newArr.length < 3) return Math.max(...newArr)
+//   let ans = 0
+//   for (let i = 3; i > 0;  i--) {    
+//     let max = Math.max(...newArr)
+//     ans = max
+//     newArr.splice(newArr.indexOf(max), 1)
 //   }
-//   return n
+//   return ans
 // };
-// const isThirdMaximumNumber = ThirdMaximumNumber([2,2,2,1])
+// const isThirdMaximumNumber = ThirdMaximumNumber([2,2,3,1])
 // console.log(isThirdMaximumNumber)
+
+
+// 415. Add Strings
+// const addStrings = (num1, num2) => {
+//   let i = num1.length - 1, j = num2.length - 1, carry = 0, sum = 0, valOne = 0, valTwo = 0, res = ''
+//   while (i >= 0 || j >= 0 || carry !== 0) {
+//     debugger
+//     valOne = i >= 0 ? num1.charAt(i) - '0' : 0
+//     valTwo = j >= 0 ? num2.charAt(j) - '0' : 0
+//     i--, j--
+//     sum = valOne + valTwo + carry
+//     res = (sum % 10) + res
+//     carry = parseInt(sum / 10)
+//   }
+//   return res
+// };
+// const isaddStrings = addStrings('11', '123')
+// console.log(isaddStrings)
+
 
 
 // 434. Number of Segments in a String
@@ -190,11 +206,11 @@
 
 
 
-/* 
-  Note: can you optimize it 🤔 
-  if got any duplicate object with same name then modify 
-  the object which values are not present in both objects 
-  then push it. 
+/*
+  Note: can you optimize it 🤔
+  if got any duplicate object with same name then modify
+  the object which values are not present in both objects
+  then push it.
   example: { name: 'jay' }, and { name: 'jay', address: '7 street', phone: '9865823' },
   is duplicate so new object will be { name: 'jay', address: '7 street', phone: '9865823' },
   address and phone are not present in the {name: 'jay'} object.
@@ -216,7 +232,7 @@
 /*
 output should be:
 [
-  { name: "jay", address: "7 street", phone: "000-000-0000"}, 
+  { name: "jay", address: "7 street", phone: "000-000-0000"},
   {name: "ryan"}, {name: "anna"}
 ]
 */
@@ -244,6 +260,21 @@ output should be:
 // const isfindDisappearedNumbers = findDisappearedNumbers([1, 1])
 // console.log(isfindDisappearedNumbers)
 
+
+
+// 459. Repeated Substring Pattern
+// const repeatedSubstringPattern = function (s) {
+//   debugger
+//   let size = s.length;
+//   let sFold = s.substr(1, size) + s.substr(0, size - 1);
+//   console.log(s.substr(1, size))
+//   console.log(s.substr(0, size - 1))
+//   console.log(sFold)
+//   console.log(sFold.indexOf(s))
+//   return sFold.indexOf(s) !== -1;
+// };
+// const isrepeatedSubstringPattern = repeatedSubstringPattern('abab')
+// console.log(isrepeatedSubstringPattern)
 
 
 
@@ -418,54 +449,22 @@ output should be:
 
 // 557. Reverse Words in a String III
 // const ReverseWordsinaStringIII = (s) => {
-//   const newArr = s.split(" ")
-//   let word = ""
-//   for (let i = 0; i < newArr.length; i++) {
-//     let str = newArr[i].split('')
-//     for (let j = 0; j < str.length / 2; j++) {
-//       [str[j], str[str.length - (1 + j)]] = [str[str.length - (1 + j)], str[j]]
+//   function reverseString(s) {
+//     let arr = s.split('');
+//     let length = ~~(arr.length / 2);
+//     for (let i = 0; i < length; i++) {
+//       [arr[i], arr[s.length - 1 - i]] = [arr[arr.length - 1 - i], arr[i]];
 //     }
-//     if (newArr.length > 1 && (newArr.length - 1) !== i) str.push(' ')
-//     console.log(str)
-//     word += str.join(' ')
+//     return arr.join('');
 //   }
-//   return word
-// };
-// const isReverseWordsinaStringIII = ReverseWordsinaStringIII("vector<string>")
-// console.log(isReverseWordsinaStringIII)
-
-// function reverseString(s){
-//   let arr = s.split('');
-//   let length = ~~(arr.length/2);
-//   for(let i = 0; i< length; i++){
-//       [arr[i],arr[s.length-1-i]] = [arr[arr.length-1-i],arr[i]];
-//   }
-//   return arr.join('');
-// }
-// var reverseWords = function(s) {
 //   let arr = s.split(' ');
-//   for(let i = 0; i<arr.length; i++){
-//       arr[i] = reverseString(arr[i]);
+//   for (let i = 0; i < arr.length; i++) {
+//     arr[i] = reverseString(arr[i]);
 //   }
 //   return arr.join(' ')
 // };
-
-
-// 561. Array Partition
-// const ArrayPartition = (nums) => {
-//   let i = 0
-//   for (let i = 0; i < nums.length; i++) {
-//     while (i !== 2) {
-//       nums[i]
-//       i++
-//     }
-//   }
-
-// };
-// const isArrayPartition = ArrayPartition([1,4,3,2])
-// console.log(isArrayPartition)
-
-
+// const isReverseWordsinaStringIII = ReverseWordsinaStringIII("abc sp s, ch")
+// console.log(isReverseWordsinaStringIII)
 
 
 // console.log(0/4) // 0
@@ -482,7 +481,7 @@ output should be:
 //   // Otherwise create a output matrix and fill the cells...
 //   const output = new Array(r).fill(0).map(() => new Array(c).fill(0))
 //   console.log(output)
-//   // Traverse the matrix through the loop... 
+//   // Traverse the matrix through the loop...
 //   for (let idx = 0; idx < r * c; idx++) {
 //     console.log(Math.floor(idx / c), (idx % c), 'output =>', output[Math.floor(idx / c)][idx % c])
 //     console.log(Math.floor(idx / mat[0].length), (idx % mat[0].length), 'mat =>', mat[Math.floor(idx / mat[0].length)][idx % mat[0].length])
@@ -511,7 +510,7 @@ output should be:
 //     if (num % i === 0) {
 //       add += i
 //       // additing constant also
-//       if (i * i !== num) add += num / i      
+//       if (i * i !== num) add += num / i
 //     }
 //   }
 //   return add - num === num
@@ -554,11 +553,11 @@ output should be:
 // matrix
 // const matrix = function (r1, c1, r2, c2, eleTofill) {
 
-//   /* 
-//     if col of A is equal to row of B then can be a new matrix 
+//   /*
+//     if col of A is equal to row of B then can be a new matrix
 //     new matrix params will be row of A and column of B (r1*c2)
 
-//     example => [[1,2], [3,4], [5,6]] in this example number of A el in a any of array is col [1,2], or [3,4] so on
+//     example => [[1,2], [3,4], [5,6]] in this example number of (A) element in a any of array is col [1,2], or [3,4] so on
 //     so col are only 2 because in array there are only two ele.
 //     and row will be count of array so there are 3 array [1,2], [3,4], [5,6]
 
@@ -592,3 +591,63 @@ output should be:
 // const ismatrix = matrix(4, 3, 3, 4, [[2, 4, 7, 1], [4, 6, 9, 3], [4, 8, 8, 6], [9, 2, 2, 8]])
 // console.log(ismatrix)
 
+
+
+
+// 645. Set Mismatch
+// https://www.youtube.com/watch?v=j89Yzq3IwVY
+// also can be solved using hash map with two diff loop like same
+// const findErrorNums = function (nums) {
+//   let duplicate = -1
+//   let missing = -1
+
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[Math.abs(nums[i]) - 1] < 0) {
+//       duplicate = Math.abs(nums[i])
+//     } else {
+//       nums[Math.abs(nums[i]) - 1] *= -1
+//     }
+//   }
+
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[Math.abs(nums[i])] > 0) {
+//       missing = Math.abs(i + 1)
+//       break
+//     }
+//   }
+
+//   return [duplicate, missing]
+// };
+// const isfindErrorNums = findErrorNums([3, 2, 3, 4, 6, 5])
+// console.log(isfindErrorNums)
+
+
+// 202. Happy Number
+// https://www.youtube.com/watch?v=X_zjZ1LrpAc
+// const isHappy = function (nums) {
+
+//   if (nums === 1) return true
+//   let addition = 0, next = nums, hashMap = {}
+
+//   for (let i = 0; i < nums; i++) {
+//     while (next !== 0) {
+//       debugger
+//       let digits = next % 10
+//       addition += Math.pow(digits, 2)
+//       next = parseInt(next / 10)
+
+//       if (hashMap[addition]) return false      
+//       if (next === 0) {
+//         if(addition === 1) return true
+//         hashMap[addition] = addition
+//         next = addition
+//         addition = 0
+
+//       }
+
+//     }
+//   }
+//   return false
+// };
+// const isisHappy = isHappy(7)
+// console.log(isisHappy)
