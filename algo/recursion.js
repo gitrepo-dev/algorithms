@@ -132,3 +132,23 @@
 // console.log(ispermuteUnique, 'ispermuteUnique')
 
 
+const rob = function (nums) {
+  const total = []
+  const recursion = (idx, arr, slate) => {
+    if (arr.length <= idx) {
+      if (slate?.length) {
+        total.push(slate.reduce((sum, num) => sum + num, 0))
+      }
+      return
+    }
+    for (let i = idx; i < arr.length; i++) {
+      slate.push(arr[i])
+      recursion(i + 2, arr, slate)
+      slate.pop()
+    }
+  }
+  recursion(0, nums, [])
+  return Math.max(...total)
+};
+const isrob = rob([2, 1, 1, 2])
+console.log(isrob)

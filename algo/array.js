@@ -118,9 +118,35 @@
 // const islargestNumber = largestNumber([0,0,0,0,0])
 // console.log(islargestNumber)
 
+
 // 189. Rotate Array
-var rotate = function(nums, k) {
-    return true
-};
-const isrotate = rotate([1,2,3,4,5,6,7], 3)
-console.log(isrotate)
+// var rotate = function (nums, k) {
+
+//   // ex: 1
+//   if (nums.length === 1 || k == 0) return nums
+
+//   const reveresNumber = (p1, p2) => {
+//     while (p1 < p2) {
+//       [nums[p1], nums[p2]] = [nums[p2], nums[p1]]
+//       p1++, p2--
+//     }
+//     return nums
+//   }
+
+//   // reverse all
+//   k = Math.floor(k % nums.length)
+//   reveresNumber(0, nums.length - 1)
+
+//   // reverse k part
+//   reveresNumber(0, k - 1)
+
+//   // // reverse rest part
+//   reveresNumber(k, nums.length - 1)
+
+//   return nums
+// };
+// const isrotate = rotate([1,2,3], 4)
+// console.log(isrotate)
+
+
+
